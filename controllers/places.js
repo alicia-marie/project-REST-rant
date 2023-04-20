@@ -1,23 +1,32 @@
 require('dotenv').config()
-const express = require('express')
-const app = express()
+const router = require('express').Router()
 
-app.use('/places', require('./controllers/places'))
+router.use('/places', require('./controllers/places'))
 
-app.get('/', (req, res) => {
-    res.send('Hello world!')
+router.get('/', (req, res) => {
+    let places = [{
+        name: 'H-Thai-ML',
+        city: 'Seattle',
+        state: 'WA',
+        cuisines: 'Thai, Pan-Asian',
+        pic: 'http://placekitten.com/250/250'
+      }, {
+        name: 'Coding Cat Cafe',
+        city: 'Phoenix',
+        state: 'AZ',
+        cuisines: 'Coffee, Bakery',
+        pic: 'http://placekitten.com/250/250'
+      }]
+    res.render('places/index', { places })
 })
 
-app.get('*', (req, res) => {
+router.get('*', (req, res) => {
     res.status(404).send('<h1>404 Page</h1>')
 })
-
-app.listen(process.env.PORT)
-
-const router = require('express').Router()
 
 router.get('/', (req, res) => {
     res.send('GET /places')
 })
 
+router.listen(process.env.PORT)
 module.exports = router
