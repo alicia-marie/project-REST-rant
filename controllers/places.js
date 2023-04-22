@@ -1,6 +1,10 @@
 require('dotenv').config()
 const router = require('express').Router()
 
+router.get('/new', (req, res) => {
+  res.render('places/new')
+})
+
 router.use('/places', require('./controllers/places'))
 
 router.get('/', (req, res) => {
