@@ -1,9 +1,9 @@
-// Modules and Globals
 require('dotenv').config()
 const express = require('express')
 const methodOverride = require('method-override')
+const port = process.env.PORT || 3000;
+const app = express()
 
-// Express Settings
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
@@ -23,7 +23,6 @@ app.get('*', (req, res) => {
   res.render('error404');
 });
 
-const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
