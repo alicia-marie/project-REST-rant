@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 const placeSchema = new mongoose.Schema({
   name: { type: String, required: true },
   pic: { type: String, default: 'http://placekitten.com/350/350'},
