@@ -24,7 +24,7 @@ let placesFormatted = data.places.map((place) => {
 return (
     <Def>
       <main>
-        <h1>PLACES INDEX PAGE</h1>
+        <h1>Places to rant about</h1>
         {placesFormatted}
       </main>
     </Def>
